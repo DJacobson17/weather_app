@@ -9,10 +9,23 @@
 </head>
 <body>
   <div class="container">
-    <header>Super Okay Weather App</header>
+    <header>Super Okay Weather App
+      <div class="button-cover">
+        <div class="button r" id="button-scale">
+          <input type="checkbox" id="scale" class="checkbox" />
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+      </div>
+    </header>
     <main>
-      <div class="search"></div>
-      <div class="results"></div>
+      <div class="search">
+        <form action="" id="searchForm">
+          <input id="searchBar" type="text" placeholder="Enter a city" />
+          <button id="searchButton">Search</button>
+        </form>
+      </div>
+      <div id="result"></div>
     </main>
     <footer> 
       <div class="links"></div>
