@@ -65,32 +65,35 @@ searchButton.addEventListener('click', (e) => {
   
 function displayResults(data) {
   result.innerHTML = `
-  <h1>${data.location}</h1>
-  <h2>${data.region}</h2>
+  <div class="card">
+  <h1 class="location">${data.location}</h1>
+  <h2 class="region">${data.region}</h2>
   <div class="current">
-  <p>Last updated: ${data.lastUpdated}</p>
   <div class="currentTemp">${data.currentTemp}°</div>
   <p>Feels like: ${data.feelsLike}°</p>
   <p>${data.condition.text}</p>
   </div>
+  </div>
   <h2>3-Day Forecast</h2>
   <div class=forecast>
-  <div  class="line">
-  <h3>Today</h3>
-  <p class="range">${data.forecastTodayMin}°-------------------- ${data.forecastTodayMax}°</p>
-  <img src= '${data.forecastTodayCondition.icon}'/>
-  </div>
-  <div  class="line middle">
-  <h3>Tomorrow</h3>
-  <p class="range">${data.forecastTomorrowMin}°-------------------- ${data.forecastTomorrowMax}°</p>
-  <img src= '${data.forecastTomorrowCondition.icon}'/>
-
-  </div>
-  <div  class="line">
-  <h3>Day After Tomorrow</h3>
-  <p class="range">${data.forecastDayAfterTomorrowMin}°-------------------- ${data.forecastDayAfterTomorrowMax}°</p>
-  <img src= '${data.forecastDayAfterTomorrowCondition.icon}'/>
-  </div>
+    <div  class="line">
+      <h3>Today
+        <img src= '${data.forecastTodayCondition.icon}'/>
+      </h3>
+      <p class="range">${data.forecastTodayMin}°-------------------- ${data.forecastTodayMax}°</p>
+    </div>
+    <div  class="line middle">
+      <h3>Tomorrow
+        <img src= '${data.forecastTomorrowCondition.icon}'/>    
+      </h3>
+      <p class="range">${data.forecastTomorrowMin}°-------------------- ${data.forecastTomorrowMax}°</p>
+    </div>
+    <div  class="line">
+      <h3>Day After Tomorrow
+        <img src= '${data.forecastDayAfterTomorrowCondition.icon}'/>
+      </h3>
+      <p class="range">${data.forecastDayAfterTomorrowMin}°-------------------- ${data.forecastDayAfterTomorrowMax}°</p>
+    </div>
   </div>
   `;
 }
