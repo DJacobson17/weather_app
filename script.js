@@ -4,7 +4,7 @@ const searchButton = document.getElementById('searchButton');
 const result = document.getElementById('result');
 const checkbox = document.getElementById('scale');
 
-
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -63,6 +63,8 @@ searchButton.addEventListener('click', (e) => {
 });
 });
   
+
+
 function displayResults(data) {
   result.innerHTML = `
   <div class="card">
@@ -70,8 +72,8 @@ function displayResults(data) {
   <h2 class="region">${data.region}</h2>
   <div class="current">
   <div class="currentTemp">${data.currentTemp}°</div>
-  <p>Feels like: ${data.feelsLike}°</p>
-  <p>${data.condition.text}</p>
+  <h2>Feels like: ${data.feelsLike}°</h2>
+  <h2>${data.condition.text}</h2>
   </div>
   </div>
   <h2>3-Day Forecast</h2>
@@ -80,19 +82,19 @@ function displayResults(data) {
       <h3>Today
         <img src= '${data.forecastTodayCondition.icon}'/>
       </h3>
-      <p class="range">${data.forecastTodayMin}°-------------------- ${data.forecastTodayMax}°</p>
+      <div class="range"><span>${data.forecastTodayMin}°</span><hr><span>${data.forecastTodayMax}°</span></div>
     </div>
     <div  class="line middle">
-      <h3>Tomorrow
+      <h3>${daysOfWeek[new Date(data.forecastTomorrowDate).getDay()]}
         <img src= '${data.forecastTomorrowCondition.icon}'/>    
       </h3>
-      <p class="range">${data.forecastTomorrowMin}°-------------------- ${data.forecastTomorrowMax}°</p>
+      <div class="range"><span>${data.forecastTomorrowMin}°</span><hr><span>${data.forecastTomorrowMax}°</span></div>
     </div>
     <div  class="line">
-      <h3>Day After Tomorrow
+      <h3>${daysOfWeek[new Date(data.forecastDayAfterTomorrowDate).getDay()]}
         <img src= '${data.forecastDayAfterTomorrowCondition.icon}'/>
       </h3>
-      <p class="range">${data.forecastDayAfterTomorrowMin}°-------------------- ${data.forecastDayAfterTomorrowMax}°</p>
+      <div class="range"><span>${data.forecastDayAfterTomorrowMin}°</span><hr><span>${data.forecastDayAfterTomorrowMax}°</span></div>
     </div>
   </div>
   `;

@@ -19,8 +19,6 @@ header {
 }
 
 .button-cover:before {
-  counter-increment: button-counter;
-  content: counter(button-counter);
   position: absolute;
   top: 0;
   right: 0;
@@ -183,8 +181,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
-  padding: 20px;
+  margin: 10px 0;
+  padding: 10px;
   border-radius: 5px;
   background-color: #f2f2f2;
 }
@@ -193,8 +191,19 @@ main {
 }
 
 .region {
-  margin: 0;
+  margin: 0 -100%;
+  text-align: center;
 }
+
+.current {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: -10px;
+
+}
+
 .currentTemp {
   font-size: 6rem;
   margin: 20px 0;
@@ -216,7 +225,7 @@ main {
 .line {
   width: 100%;
   display:grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 2fr;
   font-size: 1.6rem;
   padding: 0 20px;
 }
@@ -227,14 +236,24 @@ h3 {
   align-items: center;
 }
 
-/* .middle {
-  background-color: #5c5bbd;;
-} */
+.middle {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000 ;}
 
 .range {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 20px 0 30px;
   font-size: 1.6rem;
+  background: linear-gradient(to right, #528eee, #de5a22);
+}
+
+.range > hr {
+  width: 90%;
+  height: .5rem;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #528eee, #de5a22);
 }
