@@ -1,6 +1,9 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -147,13 +150,13 @@ main {
 #searchBar {
   width: 60%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.6rem;
 }
 #searchButton {
   width: 50%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.3rem;
   margin-top: 10px;
   cursor: pointer;
@@ -183,8 +186,11 @@ main {
   align-items: center;
   margin: 10px 0;
   padding: 10px;
-  border-radius: 5px;
-  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: #f2f2f2; */
 }
 .location {
   margin: 0;
@@ -215,7 +221,7 @@ main {
   align-items: center;
   margin: 0 0 20px 0;
   background-color: cadetblue;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -234,6 +240,8 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
+  min-width: 150px;
 }
 
 .middle {

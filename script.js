@@ -4,7 +4,7 @@ const searchButton = document.getElementById('searchButton');
 const result = document.getElementById('result');
 const checkbox = document.getElementById('scale');
 
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'];
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -57,7 +57,12 @@ searchButton.addEventListener('click', (e) => {
   console.error(error);
 }).then(data => {
   console.log(data);
-
+  getBackgroundImage(data.condition.text).then(data => {
+    console.log(data);
+    const randomImage = data.results[Math.floor(Math.random() * data.results.length)];
+    console.log(randomImage);
+    document.body.style.backgroundImage = `url(${randomImage.urls.regular})`;
+  });
   result.innerHTML = '';
   displayResults(data);
 });
@@ -112,3 +117,9 @@ async function getWeather(location) {
   return { current, forecast };
 }
 
+async function getBackgroundImage(condition) {
+  const response = await fetch(`https://api.unsplash.com/search/photos?query=${condition}+sky&client_id=ZekpEE-O-dr9scyHTq8toe4Dd8EL-uJgZMcmld5noIM`);
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
